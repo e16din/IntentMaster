@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">IntentMaster</string>
+    <string name="intent_master_share_text_title">Поделиться с помощью приложения:</string>
+    <string name="intent_master_share_link_title">Поделиться с помощью приложения:</string>
 </resources>

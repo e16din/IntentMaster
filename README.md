@@ -31,6 +31,6 @@ buildscript {
 }
 
 dependencies {
-    compile 'com.github.e16din:IntentMaster:0.1.0'
+    compile 'com.github.e16din:IntentMaster:0.1.1'
 }
 ```
