@@ -1,12 +1,14 @@
-package com.e16din.intentmaster.masters;
+package com.e16din.intentmaster;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 
-import com.e16din.intentmaster.R;
+public final class ShareMaster {
 
-public class ShareIntentMaster extends OpenIntentMaster {
+    private ShareMaster() {
+        super();
+    }
 
     //share link
     public static void shareLink(@NonNull Context context, @NonNull String url) {
