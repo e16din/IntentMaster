@@ -177,6 +177,77 @@ public final class IntentMaster {
         startForResult(fragment, cls, 0, data);
     }
 
+    ///
+
+    public static Serializable getExtra(@NonNull Intent intent, @NonNull String key) {
+        return Extra.get(intent, key);
+    }
+
+    public static Serializable getExtra(@NonNull Intent intent) {
+        return Extra.get(intent);
+    }
+
+    public static Serializable getExtra(@NonNull Intent intent, int position) {
+        return Extra.get(intent, position);
+    }
+
+    public static Serializable getExtra(@NonNull Activity activity) {
+        return Extra.get(activity);
+    }
+
+    public static Serializable getExtra(@NonNull Activity activity, @NonNull String key) {
+        return Extra.get(activity, key);
+    }
+
+    public static Serializable getExtra(@NonNull Activity activity, int position) {
+        return Extra.get(activity, position);
+    }
+
+
+    public static Parcelable getExtraP(@NonNull Intent intent, @NonNull String key) {
+        return Extra.getP(intent, key);
+    }
+
+    public static Parcelable getExtraP(@NonNull Intent intent) {
+        return Extra.getP(intent);
+    }
+
+    public static Parcelable getExtraP(@NonNull Intent intent, int position) {
+        return Extra.getP(intent, position);
+    }
+
+    public static Parcelable getExtraP(@NonNull Activity activity) {
+        return Extra.getP(activity);
+    }
+
+    public static Parcelable getExtraP(@NonNull Activity activity, @NonNull String key) {
+        return Extra.getP(activity, key);
+    }
+
+    public static Parcelable getExtraP(@NonNull Activity activity, int position) {
+        return Extra.getP(activity, position);
+    }
+
+    public static boolean containsKey(@NonNull Intent intent, @NonNull String key) {
+        return Extra.containsKey(intent, key);
+    }
+
+    public static int getExtrasCount(@NonNull Intent intent) {
+        return Extra.getExtrasCount(intent);
+    }
+
+    public static int getExtrasCount(@NonNull Activity activity) {
+        return Extra.getExtrasCount(activity);
+    }
+
+    public static boolean hasExtra(@NonNull Intent intent) {
+        return Extra.has(intent);
+    }
+
+    public static boolean hasExtra(@NonNull Activity activity) {
+        return Extra.has(activity);
+    }
+
     //broadcast
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
