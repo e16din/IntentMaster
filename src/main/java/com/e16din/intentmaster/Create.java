@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 
 import com.e16din.intentmaster.model.Data;
 
@@ -14,6 +16,78 @@ public final class Create {
 
     private Create() {
         super();
+    }
+
+    public static Fragment fragment(@NonNull Fragment fragment, Data... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static Fragment fragment(@NonNull Fragment fragment, Serializable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static Fragment fragment(@NonNull Fragment fragment, Parcelable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static android.app.Fragment fragment(@NonNull android.app.Fragment fragment, Data... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static android.app.Fragment fragment(@NonNull android.app.Fragment fragment, Serializable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static android.app.Fragment fragment(@NonNull android.app.Fragment fragment, Parcelable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static DialogFragment dialogFragment(@NonNull DialogFragment fragment, Data... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static DialogFragment dialogFragment(@NonNull DialogFragment fragment, Serializable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static DialogFragment dialogFragment(@NonNull DialogFragment fragment, Parcelable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static android.app.DialogFragment dialogFragment(@NonNull android.app.DialogFragment fragment, Data... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static android.app.DialogFragment dialogFragment(@NonNull android.app.DialogFragment fragment, Serializable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static android.app.DialogFragment dialogFragment(@NonNull android.app.DialogFragment fragment, Parcelable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
     }
 
     public static Bundle bundle(Serializable... data) {

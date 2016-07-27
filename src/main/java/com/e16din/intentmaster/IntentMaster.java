@@ -23,59 +23,79 @@ public final class IntentMaster {
 
     //new fragment
 
-    public static Fragment newFragment(Fragment fragment, Data... data) {
+    public static Fragment newFragment(@NonNull Fragment fragment, Data... data) {
         Bundle bundle = Create.bundle(data);
         fragment.setArguments(bundle);
         return fragment;
     }
 
-    public static Fragment newFragment(Fragment fragment, Serializable... data) {
+    public static Fragment newFragment(@NonNull Fragment fragment, Serializable... data) {
         Bundle bundle = Create.bundle(data);
         fragment.setArguments(bundle);
         return fragment;
     }
 
-    public static Fragment newFragment(Fragment fragment, Parcelable... data) {
+    public static Fragment newFragment(@NonNull Fragment fragment, Parcelable... data) {
         Bundle bundle = Create.bundle(data);
         fragment.setArguments(bundle);
         return fragment;
     }
 
-    public static DialogFragment newDialogFragment(DialogFragment fragment, Data... data) {
+    public static android.app.Fragment newFragment(@NonNull android.app.Fragment fragment, Data... data) {
         Bundle bundle = Create.bundle(data);
         fragment.setArguments(bundle);
         return fragment;
     }
 
-    public static DialogFragment newDialogFragment(DialogFragment fragment, Serializable... data) {
+    public static android.app.Fragment newFragment(@NonNull android.app.Fragment fragment, Serializable... data) {
         Bundle bundle = Create.bundle(data);
         fragment.setArguments(bundle);
         return fragment;
     }
 
-    public static DialogFragment newDialogFragment(DialogFragment fragment, Parcelable... data) {
+    public static android.app.Fragment newFragment(@NonNull android.app.Fragment fragment, Parcelable... data) {
         Bundle bundle = Create.bundle(data);
         fragment.setArguments(bundle);
         return fragment;
     }
 
-    public static android.app.DialogFragment newDialogFragment(android.app.DialogFragment fragment, Data... data) {
+    public static DialogFragment newDialogFragment(@NonNull DialogFragment fragment, Data... data) {
         Bundle bundle = Create.bundle(data);
         fragment.setArguments(bundle);
         return fragment;
     }
 
-    public static android.app.DialogFragment newDialogFragment(android.app.DialogFragment fragment, Serializable... data) {
+    public static DialogFragment newDialogFragment(@NonNull DialogFragment fragment, Serializable... data) {
         Bundle bundle = Create.bundle(data);
         fragment.setArguments(bundle);
         return fragment;
     }
 
-    public static android.app.DialogFragment newDialogFragment(android.app.DialogFragment fragment, Parcelable... data) {
+    public static DialogFragment newDialogFragment(@NonNull DialogFragment fragment, Parcelable... data) {
         Bundle bundle = Create.bundle(data);
         fragment.setArguments(bundle);
         return fragment;
     }
+
+    public static android.app.DialogFragment newDialogFragment(@NonNull android.app.DialogFragment fragment, Data... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static android.app.DialogFragment newDialogFragment(@NonNull android.app.DialogFragment fragment, Serializable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static android.app.DialogFragment newDialogFragment(@NonNull android.app.DialogFragment fragment, Parcelable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    //get argument
 
     public static Serializable getArgument(@NonNull Fragment fragment, @NonNull String key) {
         return Extra.get(fragment, key);
@@ -85,7 +105,7 @@ public final class IntentMaster {
         return Extra.get(fragment);
     }
 
-    public static Serializable getArgument(@NonNull  Fragment fragment, int position) {
+    public static Serializable getArgument(@NonNull Fragment fragment, int position) {
         return Extra.get(fragment, position);
     }
 
@@ -97,7 +117,7 @@ public final class IntentMaster {
         return Extra.getP(fragment);
     }
 
-    public static Parcelable getArgumentP(@NonNull  Fragment fragment, int position) {
+    public static Parcelable getArgumentP(@NonNull Fragment fragment, int position) {
         return Extra.getP(fragment, position);
     }
 
