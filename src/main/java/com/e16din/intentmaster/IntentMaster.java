@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 
 import com.e16din.intentmaster.model.Data;
@@ -35,6 +36,42 @@ public final class IntentMaster {
     }
 
     public static Fragment newFragment(Fragment fragment, Parcelable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static DialogFragment newDialogFragment(DialogFragment fragment, Data... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static DialogFragment newDialogFragment(DialogFragment fragment, Serializable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static DialogFragment newDialogFragment(DialogFragment fragment, Parcelable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static android.app.DialogFragment newDialogFragment(android.app.DialogFragment fragment, Data... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static android.app.DialogFragment newDialogFragment(android.app.DialogFragment fragment, Serializable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static android.app.DialogFragment newDialogFragment(android.app.DialogFragment fragment, Parcelable... data) {
         Bundle bundle = Create.bundle(data);
         fragment.setArguments(bundle);
         return fragment;
