@@ -2,6 +2,7 @@ package com.e16din.intentmaster;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
@@ -13,6 +14,28 @@ public final class Create {
 
     private Create() {
         super();
+    }
+
+    public static Bundle bundle(Serializable... data) {
+        Bundle bundle = bundle();
+        Extra.put(bundle, data);
+        return bundle;
+    }
+
+    public static Bundle bundle(Parcelable... data) {
+        Bundle bundle = bundle();
+        Extra.put(bundle, data);
+        return bundle;
+    }
+
+    public static Bundle bundle(Data... data) {
+        Bundle bundle = bundle();
+        Extra.put(bundle, data);
+        return bundle;
+    }
+
+    public static Bundle bundle() {
+        return new Bundle();
     }
 
     public static Intent intent(@NonNull Context context, @NonNull Class cls, Serializable... data) {

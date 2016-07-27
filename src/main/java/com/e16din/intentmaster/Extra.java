@@ -2,8 +2,10 @@ package com.e16din.intentmaster;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 
 import com.e16din.intentmaster.model.Data;
 
@@ -16,6 +18,31 @@ public final class Extra {
     }
 
     public static String KEY_DATA = "data";
+
+    public static Serializable get(@NonNull Fragment fragment, @NonNull String key) {
+        return fragment.getArguments() == null ? null : fragment.getArguments().getSerializable(key);
+    }
+
+    public static Serializable get(@NonNull Fragment fragment) {
+        return get(fragment, 0);
+    }
+
+    public static Serializable get(@NonNull  Fragment fragment, int position) {
+        return get(fragment, KEY_DATA + "_" + position);
+    }
+
+    public static Parcelable getP(@NonNull Fragment fragment, @NonNull String key) {
+        return fragment.getArguments() == null ? null : fragment.getArguments().getParcelable(key);
+    }
+
+    public static Parcelable getP(@NonNull Fragment fragment) {
+        return getP(fragment, 0);
+    }
+
+    public static Parcelable getP(@NonNull  Fragment fragment, int position) {
+        return getP(fragment, KEY_DATA + "_" + position);
+    }
+
 
     public static Serializable get(@NonNull Intent intent, @NonNull String key) {
         return intent.getExtras() == null ? null : intent.getExtras().getSerializable(key);
@@ -102,6 +129,24 @@ public final class Extra {
     public static void put(@NonNull Intent intent, Parcelable[] data) {
         for (int i = 0; i < data.length; i++) {
             intent.putExtra(KEY_DATA + "_" + i, data[i]);
+        }
+    }
+
+    public static void put(Bundle bundle, Data[] data) {
+        for (int i = 0; i < data.length; i++) {
+            bundle.putSerializable(KEY_DATA + "_" + i, data[i]);
+        }
+    }
+
+    public static void put(Bundle bundle, Parcelable[] data) {
+        for (int i = 0; i < data.length; i++) {
+            bundle.putParcelable(KEY_DATA + "_" + i, data[i]);
+        }
+    }
+
+    public static void put(Bundle bundle, Serializable[] data) {
+        for (int i = 0; i < data.length; i++) {
+            bundle.putSerializable(KEY_DATA + "_" + i, data[i]);
         }
     }
 }

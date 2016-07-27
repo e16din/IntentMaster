@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,52 @@ public final class IntentMaster {
     private IntentMaster() {
         super();
     }
+
+    //new fragment
+
+    public static Fragment newFragment(Fragment fragment, Data... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static Fragment newFragment(Fragment fragment, Serializable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static Fragment newFragment(Fragment fragment, Parcelable... data) {
+        Bundle bundle = Create.bundle(data);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    public static Serializable getArgument(@NonNull Fragment fragment, @NonNull String key) {
+        return Extra.get(fragment, key);
+    }
+
+    public static Serializable getArgument(@NonNull Fragment fragment) {
+        return Extra.get(fragment);
+    }
+
+    public static Serializable getArgument(@NonNull  Fragment fragment, int position) {
+        return Extra.get(fragment, position);
+    }
+
+    public static Parcelable getArgumentP(@NonNull Fragment fragment, @NonNull String key) {
+        return Extra.getP(fragment, key);
+    }
+
+    public static Parcelable getArgumentP(@NonNull Fragment fragment) {
+        return Extra.getP(fragment);
+    }
+
+    public static Parcelable getArgumentP(@NonNull  Fragment fragment, int position) {
+        return Extra.getP(fragment, position);
+    }
+
+    //start activity
 
     public static void start(Context context, @NonNull Class cls) {
         Intent intent = Create.intent(context, cls);
@@ -80,7 +127,8 @@ public final class IntentMaster {
         startForResult(activity, cls, 0, data);
     }
 
-    ///
+    //start activity for result
+
     public static void startForResult(@NonNull Fragment fragment, @NonNull Class cls, int requestCode) {
         Activity activity = fragment.getActivity();
         Intent intent = Create.intent(activity, cls);
@@ -177,7 +225,7 @@ public final class IntentMaster {
         startForResult(fragment, cls, 0, data);
     }
 
-    ///
+    // get extra
 
     public static Serializable getExtra(@NonNull Intent intent, @NonNull String key) {
         return Extra.get(intent, key);
@@ -317,10 +365,4 @@ public final class IntentMaster {
     }
 
     //todo: show view by url
-
-    //todo: put and get fragment args from newInstance bundle
-
-    //todo: sendBroadcast
-
-    //todo: may be Create.intent()
 }
