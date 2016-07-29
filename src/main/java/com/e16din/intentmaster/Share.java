@@ -11,19 +11,37 @@ public final class Share {
     }
 
     //share link
+
+    /**
+     * Share link with other applications
+     * <p/>
+     * You may override intent_master_share_link_title string resource to change title
+     */
     public static void link(@NonNull Context context, @NonNull String url) {
         link(context, url, context.getString(R.string.intent_master_share_link_title));
     }
 
+    /**
+     * Share link with other applications
+     */
     public static void link(@NonNull Context context, @NonNull String text, String title) {
         text(context, text, title);
     }
 
     //share text
+
+    /**
+     * Share text with other applications
+     * <p/>
+     * You may override intent_master_share_text_title string resource to change title
+     */
     public static void text(@NonNull Context context, @NonNull String text) {
         text(context, text, context.getString(R.string.intent_master_share_text_title));
     }
 
+    /**
+     * Share text with other applications
+     */
     public static void text(@NonNull Context context, @NonNull String text, String title) {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");

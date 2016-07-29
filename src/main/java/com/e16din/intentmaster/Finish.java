@@ -33,22 +33,22 @@ public final class Finish {
 
     public static Intent createResultIntent(@NonNull Activity activity, Serializable... data) {
         Intent intent = new Intent();
-        activity.setResult(Activity.RESULT_OK, intent);
         Extra.put(intent, data);
+        activity.setResult(Activity.RESULT_OK, intent);
         return intent;
     }
 
     public static Intent createResultIntent(@NonNull Activity activity, Parcelable... data) {
         Intent intent = new Intent();
-        activity.setResult(Activity.RESULT_OK, intent);
         Extra.put(intent, data);
+        activity.setResult(Activity.RESULT_OK, intent);
         return intent;
     }
 
     public static Intent createResultIntent(@NonNull Activity activity, Data... data) {
         Intent intent = new Intent();
-        activity.setResult(Activity.RESULT_OK, intent);
         Extra.put(intent, data);
+        activity.setResult(Activity.RESULT_OK, intent);
         return intent;
     }
 }

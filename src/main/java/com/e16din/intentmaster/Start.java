@@ -1,10 +1,8 @@
 package com.e16din.intentmaster;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -19,7 +17,6 @@ public final class Start {
         super();
     }
 
-    //todo: public static void startActivity(Fragment fragment //like startActivityForResult
     public static void activity(Context context, @NonNull Class cls) {
         Intent intent = Create.intent(context, cls);
         context.startActivity(intent);
@@ -40,25 +37,29 @@ public final class Start {
         context.startActivity(intent);
     }
 
-    public static void activityForResult(@NonNull Activity activity, @NonNull Class cls, int requestCode) {
+    public static void activityForResult(@NonNull Activity activity, @NonNull Class cls,
+                                         int requestCode) {
         Intent intent = Create.intent(activity, cls);
         activity.startActivityForResult(intent, requestCode);
     }
 
-    public static void activityForResult(@NonNull Activity activity, @NonNull Class cls, int requestCode,
-                                      Data... data) {
+    public static void activityForResult(@NonNull Activity activity, @NonNull Class cls,
+                                         int requestCode,
+                                         Data... data) {
         Intent intent = Create.intent(activity, cls, data);
         activity.startActivityForResult(intent, requestCode);
     }
 
-    public static void activityForResult(@NonNull Activity activity, @NonNull Class cls, int requestCode,
-                                      Serializable... data) {
+    public static void activityForResult(@NonNull Activity activity, @NonNull Class cls,
+                                         int requestCode,
+                                         Serializable... data) {
         Intent intent = Create.intent(activity, cls, data);
         activity.startActivityForResult(intent, requestCode);
     }
 
-    public static void activityForResult(@NonNull Activity activity, @NonNull Class cls, int requestCode,
-                                      Parcelable... data) {
+    public static void activityForResult(@NonNull Activity activity, @NonNull Class cls,
+                                         int requestCode,
+                                         Parcelable... data) {
         Intent intent = Create.intent(activity, cls, data);
         activity.startActivityForResult(intent, requestCode);
     }
@@ -67,45 +68,45 @@ public final class Start {
         activityForResult(activity, cls, 0);
     }
 
-    public static void activityForResult0(@NonNull Activity activity, @NonNull Class cls, Data... data) {
+    public static void activityForResult0(@NonNull Activity activity, @NonNull Class cls,
+                                          Data... data) {
         activityForResult(activity, cls, 0, data);
     }
 
     public static void activityForResult0(@NonNull Activity activity, @NonNull Class cls,
-                                       Serializable... data) {
+                                          Serializable... data) {
         activityForResult(activity, cls, 0, data);
     }
 
     public static void activityForResult0(@NonNull Activity activity, @NonNull Class cls,
-                                       Parcelable... data) {
+                                          Parcelable... data) {
         activityForResult(activity, cls, 0, data);
     }
 
-    ///
-    public static void activityForResult(@NonNull Fragment fragment, @NonNull Class cls, int requestCode) {
-        Activity activity = fragment.getActivity();
-        Intent intent = Create.intent(activity, cls);
+    public static void activityForResult(@NonNull Fragment fragment, @NonNull Class cls,
+                                         int requestCode) {
+        Intent intent = Create.intent(fragment.getActivity(), cls);
         fragment.startActivityForResult(intent, requestCode);
     }
 
-    public static void activityForResult(@NonNull Fragment fragment, @NonNull Class cls, int requestCode,
-                                      Data... data) {
-        Activity activity = fragment.getActivity();
-        Intent intent = Create.intent(activity, cls, data);
+    public static void activityForResult(@NonNull Fragment fragment, @NonNull Class cls,
+                                         int requestCode,
+                                         Data... data) {
+        Intent intent = Create.intent(fragment.getActivity(), cls, data);
         fragment.startActivityForResult(intent, requestCode);
     }
 
-    public static void activityForResult(@NonNull Fragment fragment, @NonNull Class cls, int requestCode,
-                                      Serializable... data) {
-        Activity activity = fragment.getActivity();
-        Intent intent = Create.intent(activity, cls, data);
+    public static void activityForResult(@NonNull Fragment fragment, @NonNull Class cls,
+                                         int requestCode,
+                                         Serializable... data) {
+        Intent intent = Create.intent(fragment.getActivity(), cls, data);
         fragment.startActivityForResult(intent, requestCode);
     }
 
-    public static void activityForResult(@NonNull Fragment fragment, @NonNull Class cls, int requestCode,
-                                      Parcelable... data) {
-        Activity activity = fragment.getActivity();
-        Intent intent = Create.intent(activity, cls, data);
+    public static void activityForResult(@NonNull Fragment fragment, @NonNull Class cls,
+                                         int requestCode,
+                                         Parcelable... data) {
+        Intent intent = Create.intent(fragment.getActivity(), cls, data);
         fragment.startActivityForResult(intent, requestCode);
     }
 
@@ -113,50 +114,43 @@ public final class Start {
         activityForResult(fragment, cls, 0);
     }
 
-    public static void startActivityForResult0(@NonNull Fragment fragment, @NonNull Class cls, Data... data) {
+    public static void startActivityForResult0(@NonNull Fragment fragment, @NonNull Class cls,
+                                               Data... data) {
         activityForResult(fragment, cls, 0, data);
     }
 
     public static void activityForResult0(@NonNull Fragment fragment, @NonNull Class cls,
-                                       Serializable... data) {
+                                          Serializable... data) {
         activityForResult(fragment, cls, 0, data);
     }
 
     public static void activityForResult0(@NonNull Fragment fragment, @NonNull Class cls,
-                                       Parcelable... data) {
+                                          Parcelable... data) {
         activityForResult(fragment, cls, 0, data);
     }
 
-    ///
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls, int requestCode) {
-        Activity activity = fragment.getActivity();
-        Intent intent = Create.intent(activity, cls);
+    public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
+                                         int requestCode) {
+        Intent intent = Create.intent(fragment.getActivity(), cls);
         fragment.startActivityForResult(intent, requestCode);
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls, int requestCode,
-                                      Data... data) {
-        Activity activity = fragment.getActivity();
-        Intent intent = Create.intent(activity, cls, data);
+    public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
+                                         int requestCode, Data... data) {
+        Intent intent = Create.intent(fragment.getActivity(), cls, data);
         fragment.startActivityForResult(intent, requestCode);
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls, int requestCode,
-                                      Serializable... data) {
-        Activity activity = fragment.getActivity();
-        Intent intent = Create.intent(activity, cls, data);
+    public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
+                                         int requestCode, Serializable... data) {
+        Intent intent = Create.intent(fragment.getActivity(), cls, data);
         fragment.startActivityForResult(intent, requestCode);
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls, int requestCode,
-                                      Parcelable... data) {
-        Activity activity = fragment.getActivity();
-        Intent intent = Create.intent(activity, cls, data);
+    public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
+                                         int requestCode, Parcelable... data) {
+        Intent intent = Create.intent(fragment.getActivity(), cls, data);
         fragment.startActivityForResult(intent, requestCode);
     }
 
@@ -164,17 +158,18 @@ public final class Start {
         activityForResult(fragment, cls, 0);
     }
 
-    public static void activityForResult0(@NonNull android.app.Fragment fragment, @NonNull Class cls, Data... data) {
+    public static void activityForResult0(@NonNull android.app.Fragment fragment, @NonNull Class cls,
+                                          Data... data) {
         activityForResult(fragment, cls, 0, data);
     }
 
     public static void activityForResult0(@NonNull android.app.Fragment fragment, @NonNull Class cls,
-                                       Serializable... data) {
+                                          Serializable... data) {
         activityForResult(fragment, cls, 0, data);
     }
 
     public static void activityForResult0(@NonNull android.app.Fragment fragment, @NonNull Class cls,
-                                       Parcelable... data) {
+                                          Parcelable... data) {
         activityForResult(fragment, cls, 0, data);
     }
 
