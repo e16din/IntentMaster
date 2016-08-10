@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 
@@ -245,25 +246,25 @@ public final class Start {
     public static void activity(@NonNull Context context, @NonNull Class cls,
                                 @NonNull ActivityOptionsCompat options) {
         Intent intent = Create.intent(context, cls);
-        context.startActivity(intent, options.toBundle());
+        ActivityCompat.startActivity(Utils.scanForActivity(context), intent, options.toBundle());
     }
 
     public static void activity(@NonNull Context context, @NonNull Class cls,
                                 @NonNull ActivityOptionsCompat options, Data... data) {
         Intent intent = Create.intent(context, cls, data);
-        context.startActivity(intent, options.toBundle());
+        ActivityCompat.startActivity(Utils.scanForActivity(context), intent, options.toBundle());
     }
 
     public static void activity(@NonNull Context context, @NonNull Class cls,
                                 @NonNull ActivityOptionsCompat options, Serializable... data) {
         Intent intent = Create.intent(context, cls, data);
-        context.startActivity(intent, options.toBundle());
+        ActivityCompat.startActivity(Utils.scanForActivity(context), intent, options.toBundle());
     }
 
     public static void activity(@NonNull Context context, @NonNull Class cls,
                                 @NonNull ActivityOptionsCompat options, Parcelable... data) {
         Intent intent = Create.intent(context, cls, data);
-        context.startActivity(intent, options.toBundle());
+        ActivityCompat.startActivity(Utils.scanForActivity(context), intent, options.toBundle());
     }
 
 
@@ -273,28 +274,28 @@ public final class Start {
     public static void activityForResult(@NonNull Activity activity, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptionsCompat options) {
         Intent intent = Create.intent(activity, cls);
-        activity.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(activity, intent, requestCode, options.toBundle());
     }
 
     public static void activityForResult(@NonNull Activity activity, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptionsCompat options,
                                          Data... data) {
         Intent intent = Create.intent(activity, cls, data);
-        activity.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(activity, intent, requestCode, options.toBundle());
     }
 
     public static void activityForResult(@NonNull Activity activity, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptionsCompat options,
                                          Serializable... data) {
         Intent intent = Create.intent(activity, cls, data);
-        activity.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(activity, intent, requestCode, options.toBundle());
     }
 
     public static void activityForResult(@NonNull Activity activity, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptionsCompat options,
                                          Parcelable... data) {
         Intent intent = Create.intent(activity, cls, data);
-        activity.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(activity, intent, requestCode, options.toBundle());
     }
 
 
@@ -328,27 +329,27 @@ public final class Start {
     public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptionsCompat options) {
         Intent intent = Create.intent(fragment.getActivity(), cls);
-        fragment.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(fragment.getActivity(), intent, requestCode, options.toBundle());
     }
 
     public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptionsCompat options, Data... data) {
         Intent intent = Create.intent(fragment.getActivity(), cls, data);
-        fragment.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(fragment.getActivity(), intent, requestCode, options.toBundle());
     }
 
     public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptionsCompat options,
                                          Serializable... data) {
         Intent intent = Create.intent(fragment.getActivity(), cls, data);
-        fragment.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(fragment.getActivity(), intent, requestCode, options.toBundle());
     }
 
     public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptionsCompat options,
                                          Parcelable... data) {
         Intent intent = Create.intent(fragment.getActivity(), cls, data);
-        fragment.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(fragment.getActivity(), intent, requestCode, options.toBundle());
     }
 
 
@@ -424,25 +425,25 @@ public final class Start {
     public static void activity(@NonNull Context context, @NonNull Class cls,
                                 @NonNull ActivityOptions options) {
         Intent intent = Create.intent(context, cls);
-        context.startActivity(intent, options.toBundle());
+        ActivityCompat.startActivity(Utils.scanForActivity(context), intent, options.toBundle());
     }
 
     public static void activity(@NonNull Context context, @NonNull Class cls,
                                 @NonNull ActivityOptions options, Data... data) {
         Intent intent = Create.intent(context, cls, data);
-        context.startActivity(intent, options.toBundle());
+        ActivityCompat.startActivity(Utils.scanForActivity(context), intent, options.toBundle());
     }
 
     public static void activity(@NonNull Context context, @NonNull Class cls,
                                 @NonNull ActivityOptions options, Serializable... data) {
         Intent intent = Create.intent(context, cls, data);
-        context.startActivity(intent, options.toBundle());
+        ActivityCompat.startActivity(Utils.scanForActivity(context), intent, options.toBundle());
     }
 
     public static void activity(@NonNull Context context, @NonNull Class cls,
                                 @NonNull ActivityOptions options, Parcelable... data) {
         Intent intent = Create.intent(context, cls, data);
-        context.startActivity(intent, options.toBundle());
+        ActivityCompat.startActivity(Utils.scanForActivity(context), intent, options.toBundle());
     }
 
 
@@ -452,82 +453,82 @@ public final class Start {
     public static void activityForResult(@NonNull Activity activity, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptions options) {
         Intent intent = Create.intent(activity, cls);
-        activity.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(activity, intent, requestCode, options.toBundle());
     }
 
     public static void activityForResult(@NonNull Activity activity, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptions options,
                                          Data... data) {
         Intent intent = Create.intent(activity, cls, data);
-        activity.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(activity, intent, requestCode, options.toBundle());
     }
 
     public static void activityForResult(@NonNull Activity activity, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptions options,
                                          Serializable... data) {
         Intent intent = Create.intent(activity, cls, data);
-        activity.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(activity, intent, requestCode, options.toBundle());
     }
 
     public static void activityForResult(@NonNull Activity activity, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptions options,
                                          Parcelable... data) {
         Intent intent = Create.intent(activity, cls, data);
-        activity.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(activity, intent, requestCode, options.toBundle());
     }
 
 
     public static void activityForResult(@NonNull Fragment fragment, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptions options) {
         Intent intent = Create.intent(fragment.getActivity(), cls);
-        fragment.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(fragment.getActivity(), intent, requestCode, options.toBundle());
     }
 
     public static void activityForResult(@NonNull Fragment fragment, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptions options, Data... data) {
         Intent intent = Create.intent(fragment.getActivity(), cls, data);
-        fragment.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(fragment.getActivity(), intent, requestCode, options.toBundle());
     }
 
     public static void activityForResult(@NonNull Fragment fragment, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptions options,
                                          Serializable... data) {
         Intent intent = Create.intent(fragment.getActivity(), cls, data);
-        fragment.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(fragment.getActivity(), intent, requestCode, options.toBundle());
     }
 
     public static void activityForResult(@NonNull Fragment fragment, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptions options,
                                          Parcelable... data) {
         Intent intent = Create.intent(fragment.getActivity(), cls, data);
-        fragment.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(fragment.getActivity(), intent, requestCode, options.toBundle());
     }
 
 
     public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptions options) {
         Intent intent = Create.intent(fragment.getActivity(), cls);
-        fragment.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(fragment.getActivity(), intent, requestCode, options.toBundle());
     }
 
     public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptions options, Data... data) {
         Intent intent = Create.intent(fragment.getActivity(), cls, data);
-        fragment.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(fragment.getActivity(), intent, requestCode, options.toBundle());
     }
 
     public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptions options,
                                          Serializable... data) {
         Intent intent = Create.intent(fragment.getActivity(), cls, data);
-        fragment.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(fragment.getActivity(), intent, requestCode, options.toBundle());
     }
 
     public static void activityForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
                                          int requestCode, @NonNull ActivityOptions options,
                                          Parcelable... data) {
         Intent intent = Create.intent(fragment.getActivity(), cls, data);
-        fragment.startActivityForResult(intent, requestCode, options.toBundle());
+        ActivityCompat.startActivityForResult(fragment.getActivity(), intent, requestCode, options.toBundle());
     }
 
 
