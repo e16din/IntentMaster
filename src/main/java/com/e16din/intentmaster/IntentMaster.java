@@ -14,6 +14,9 @@ import java.io.Serializable;
 
 public final class IntentMaster {
 
+    private static boolean sNeedIgnoreExceptions = false;
+
+
     private IntentMaster() {
         super();
     }
@@ -32,18 +35,15 @@ public final class IntentMaster {
         return Create.fragment(fragment, data);
     }
 
-    public static android.app.Fragment newFragment(@NonNull android.app.Fragment fragment,
-                                                   Data... data) {
+    public static android.app.Fragment newFragment(@NonNull android.app.Fragment fragment, Data... data) {
         return Create.fragment(fragment, data);
     }
 
-    public static android.app.Fragment newFragment(@NonNull android.app.Fragment fragment,
-                                                   Serializable... data) {
+    public static android.app.Fragment newFragment(@NonNull android.app.Fragment fragment, Serializable... data) {
         return Create.fragment(fragment, data);
     }
 
-    public static android.app.Fragment newFragment(@NonNull android.app.Fragment fragment,
-                                                   Parcelable... data) {
+    public static android.app.Fragment newFragment(@NonNull android.app.Fragment fragment, Parcelable... data) {
         return Create.fragment(fragment, data);
     }
 
@@ -53,28 +53,26 @@ public final class IntentMaster {
         return Create.dialogFragment(fragment, data);
     }
 
-    public static DialogFragment newDialogFragment(@NonNull DialogFragment fragment,
-                                                   Serializable... data) {
+    public static DialogFragment newDialogFragment(@NonNull DialogFragment fragment, Serializable... data) {
         return Create.dialogFragment(fragment, data);
     }
 
-    public static DialogFragment newDialogFragment(@NonNull DialogFragment fragment,
-                                                   Parcelable... data) {
+    public static DialogFragment newDialogFragment(@NonNull DialogFragment fragment, Parcelable... data) {
         return Create.dialogFragment(fragment, data);
     }
 
-    public static android.app.DialogFragment newDialogFragment(
-            @NonNull android.app.DialogFragment fragment, Data... data) {
+    public static android.app.DialogFragment newDialogFragment(@NonNull android.app.DialogFragment fragment,
+                                                               Data... data) {
         return Create.dialogFragment(fragment, data);
     }
 
-    public static android.app.DialogFragment newDialogFragment(
-            @NonNull android.app.DialogFragment fragment, Serializable... data) {
+    public static android.app.DialogFragment newDialogFragment(@NonNull android.app.DialogFragment fragment,
+                                                               Serializable... data) {
         return Create.dialogFragment(fragment, data);
     }
 
-    public static android.app.DialogFragment newDialogFragment(
-            @NonNull android.app.DialogFragment fragment, Parcelable... data) {
+    public static android.app.DialogFragment newDialogFragment(@NonNull android.app.DialogFragment fragment,
+                                                               Parcelable... data) {
         return Create.dialogFragment(fragment, data);
     }
 
@@ -139,13 +137,11 @@ public final class IntentMaster {
         Start.activityForResult0(activity, cls, data);
     }
 
-    public static void startForResult0(@NonNull Activity activity, @NonNull Class cls,
-                                       Serializable... data) {
+    public static void startForResult0(@NonNull Activity activity, @NonNull Class cls, Serializable... data) {
         Start.activityForResult0(activity, cls, data);
     }
 
-    public static void startForResult0(@NonNull Activity activity, @NonNull Class cls,
-                                       Parcelable... data) {
+    public static void startForResult0(@NonNull Activity activity, @NonNull Class cls, Parcelable... data) {
         Start.activityForResult0(activity, cls, data);
     }
 
@@ -153,8 +149,7 @@ public final class IntentMaster {
         Start.activityForResult(fragment, cls, requestCode);
     }
 
-    public static void startForResult(@NonNull Fragment fragment, @NonNull Class cls, int requestCode,
-                                      Data... data) {
+    public static void startForResult(@NonNull Fragment fragment, @NonNull Class cls, int requestCode, Data... data) {
         Start.activityForResult(fragment, cls, requestCode, data);
     }
 
@@ -172,38 +167,34 @@ public final class IntentMaster {
         Start.activityForResult0(fragment, cls);
     }
 
-    public static void startActivityForResult0(@NonNull Fragment fragment, @NonNull Class cls,
-                                               Data... data) {
+    public static void startActivityForResult0(@NonNull Fragment fragment, @NonNull Class cls, Data... data) {
         Start.activityForResult0(fragment, cls, data);
     }
 
-    public static void startForResult0(@NonNull Fragment fragment, @NonNull Class cls,
-                                       Serializable... data) {
+    public static void startForResult0(@NonNull Fragment fragment, @NonNull Class cls, Serializable... data) {
         Start.activityForResult0(fragment, cls, data);
     }
 
-    public static void startForResult0(@NonNull Fragment fragment, @NonNull Class cls,
-                                       Parcelable... data) {
+    public static void startForResult0(@NonNull Fragment fragment, @NonNull Class cls, Parcelable... data) {
         Start.activityForResult0(fragment, cls, data);
     }
 
-    public static void startForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
-                                      int requestCode) {
+    public static void startForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls, int requestCode) {
         Start.activityForResult(fragment, cls, requestCode);
     }
 
-    public static void startForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
-                                      int requestCode, Data... data) {
+    public static void startForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls, int requestCode,
+                                      Data... data) {
         Start.activityForResult(fragment, cls, requestCode, data);
     }
 
-    public static void startForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
-                                      int requestCode, Serializable... data) {
+    public static void startForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls, int requestCode,
+                                      Serializable... data) {
         Start.activityForResult(fragment, cls, requestCode, data);
     }
 
-    public static void startForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls,
-                                      int requestCode, Parcelable... data) {
+    public static void startForResult(@NonNull android.app.Fragment fragment, @NonNull Class cls, int requestCode,
+                                      Parcelable... data) {
         Start.activityForResult(fragment, cls, requestCode, data);
     }
 
@@ -211,8 +202,7 @@ public final class IntentMaster {
         startForResult(fragment, cls, 0);
     }
 
-    public static void startForResult0(@NonNull android.app.Fragment fragment, @NonNull Class cls,
-                                       Data... data) {
+    public static void startForResult0(@NonNull android.app.Fragment fragment, @NonNull Class cls, Data... data) {
         Start.activityForResult0(fragment, cls, data);
     }
 
@@ -221,8 +211,7 @@ public final class IntentMaster {
         Start.activityForResult0(fragment, cls, data);
     }
 
-    public static void startForResult0(@NonNull android.app.Fragment fragment, @NonNull Class cls,
-                                       Parcelable... data) {
+    public static void startForResult0(@NonNull android.app.Fragment fragment, @NonNull Class cls, Parcelable... data) {
         Start.activityForResult0(fragment, cls, data);
     }
 
@@ -280,8 +269,7 @@ public final class IntentMaster {
         fragment.getActivity().sendBroadcast(Create.intent(action));
     }
 
-    public static void sendBroadcast(@NonNull android.app.Fragment fragment, @NonNull String action,
-                                     Data... data) {
+    public static void sendBroadcast(@NonNull android.app.Fragment fragment, @NonNull String action, Data... data) {
         fragment.getActivity().sendBroadcast(Create.intent(action, data));
     }
 
@@ -300,18 +288,15 @@ public final class IntentMaster {
         fragment.getActivity().sendBroadcast(Create.intent(action));
     }
 
-    public static void sendBroadcast(@NonNull Fragment fragment, @NonNull String action,
-                                     Data... data) {
+    public static void sendBroadcast(@NonNull Fragment fragment, @NonNull String action, Data... data) {
         fragment.getActivity().sendBroadcast(Create.intent(action, data));
     }
 
-    public static void sendBroadcast(@NonNull Fragment fragment, @NonNull String action,
-                                     Serializable... data) {
+    public static void sendBroadcast(@NonNull Fragment fragment, @NonNull String action, Serializable... data) {
         fragment.getActivity().sendBroadcast(Create.intent(action, data));
     }
 
-    public static void sendBroadcast(@NonNull Fragment fragment, @NonNull String action,
-                                     Parcelable... data) {
+    public static void sendBroadcast(@NonNull Fragment fragment, @NonNull String action, Parcelable... data) {
         fragment.getActivity().sendBroadcast(Create.intent(action, data));
     }
 
@@ -320,20 +305,25 @@ public final class IntentMaster {
         activity.sendBroadcast(Create.intent(action));
     }
 
-    public static void sendBroadcast(@NonNull Activity activity, @NonNull String action,
-                                     Data... data) {
+    public static void sendBroadcast(@NonNull Activity activity, @NonNull String action, Data... data) {
         activity.sendBroadcast(Create.intent(action, data));
     }
 
-    public static void sendBroadcast(@NonNull Activity activity, @NonNull String action,
-                                     Serializable... data) {
+    public static void sendBroadcast(@NonNull Activity activity, @NonNull String action, Serializable... data) {
         activity.sendBroadcast(Create.intent(action, data));
     }
 
-    public static void sendBroadcast(@NonNull Activity activity, @NonNull String action,
-                                     Parcelable... data) {
+    public static void sendBroadcast(@NonNull Activity activity, @NonNull String action, Parcelable... data) {
         activity.sendBroadcast(Create.intent(action, data));
     }
 
     //todo: show view by url
+
+    public static boolean needIgnoreExceptions() {
+        return sNeedIgnoreExceptions;
+    }
+
+    public static void setNeedIgnoreExceptions(boolean needIgnoreExceptions) {
+        sNeedIgnoreExceptions = needIgnoreExceptions;
+    }
 }

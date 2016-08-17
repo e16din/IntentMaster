@@ -42,10 +42,15 @@ public final class Share {
     /**
      * Share text with other applications
      */
-    public static void text(@NonNull Context context, @NonNull String text, String title) {
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, text);
-        context.startActivity(Intent.createChooser(shareIntent, title));
+    public static void text(@NonNull final Context context, @NonNull final String text, final String title) {
+        Utils.tryThis(new Runnable() {
+            @Override
+            public void run() {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, text);
+                context.startActivity(Intent.createChooser(shareIntent, title));
+            }
+        }, IntentMaster.needIgnoreExceptions());
     }
 }

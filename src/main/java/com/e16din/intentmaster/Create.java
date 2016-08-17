@@ -33,20 +33,17 @@ public final class Create {
         return fragment;
     }
 
-    public static android.app.Fragment fragment(@NonNull android.app.Fragment fragment,
-                                                Data... data) {
+    public static android.app.Fragment fragment(@NonNull android.app.Fragment fragment, Data... data) {
         fragment.setArguments(Create.bundle(data));
         return fragment;
     }
 
-    public static android.app.Fragment fragment(@NonNull android.app.Fragment fragment,
-                                                Serializable... data) {
+    public static android.app.Fragment fragment(@NonNull android.app.Fragment fragment, Serializable... data) {
         fragment.setArguments(Create.bundle(data));
         return fragment;
     }
 
-    public static android.app.Fragment fragment(@NonNull android.app.Fragment fragment,
-                                                Parcelable... data) {
+    public static android.app.Fragment fragment(@NonNull android.app.Fragment fragment, Parcelable... data) {
         fragment.setArguments(Create.bundle(data));
         return fragment;
     }
@@ -56,14 +53,12 @@ public final class Create {
         return fragment;
     }
 
-    public static DialogFragment dialogFragment(@NonNull DialogFragment fragment,
-                                                Serializable... data) {
+    public static DialogFragment dialogFragment(@NonNull DialogFragment fragment, Serializable... data) {
         fragment.setArguments(Create.bundle(data));
         return fragment;
     }
 
-    public static DialogFragment dialogFragment(@NonNull DialogFragment fragment,
-                                                Parcelable... data) {
+    public static DialogFragment dialogFragment(@NonNull DialogFragment fragment, Parcelable... data) {
         fragment.setArguments(Create.bundle(data));
         return fragment;
     }

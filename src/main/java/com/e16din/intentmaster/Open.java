@@ -15,58 +15,101 @@ public class Open {
         super();
     }
 
-    public static void phone(@NonNull Activity activity, @NonNull String phone) {
-        Intent intent = new Intent(Intent.ACTION_CALL);
-        intent.setData(Uri.parse("tel:" + phone));
-        if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            Log.w("OpenMaster", "call: here to request the missing permission " +
-                    "<uses-permission android:name=\"android.permission.CALL_PHONE\" />");
-            return;
-        }
-        activity.startActivity(intent);
+    public static void phone(@NonNull final Activity activity, @NonNull final String phone) {
+        Utils.tryThis(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                intent.setData(Uri.parse("tel:" + phone));
+                if (ActivityCompat.checkSelfPermission(activity,
+                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    Log.w("OpenMaster", "call: here to request the missing permission " +
+                            "<uses-permission android:name=\"android.permission.CALL_PHONE\" />");
+                    return;
+                }
+                activity.startActivity(intent);
+            }
+        }, IntentMaster.needIgnoreExceptions());
     }
 
-    public static void sms(@NonNull Activity activity, @NonNull String phone, @NonNull String message) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("sms:" + phone));
-        intent.putExtra("sms_body", message);
-        activity.startActivity(intent);
+    public static void sms(@NonNull final Activity activity, @NonNull final String phone, @NonNull final String msg) {
+        Utils.tryThis(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("sms:" + phone));
+                intent.putExtra("sms_body", msg);
+                activity.startActivity(intent);
+            }
+        }, IntentMaster.needIgnoreExceptions());
     }
 
-    public static void map(@NonNull Activity activity, double lat, double lng, @NonNull String title) {
-        Intent intent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("geo:0,0?q=" + lat + "," + lng + " (" + title + ")"));
-        activity.startActivity(intent);
+    public static void map(@NonNull final Activity activity, final double lat, final double lng,
+                           @NonNull final String title) {
+        Utils.tryThis(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("geo:0,0?q=" + lat + "," + lng + " (" + title + ")"));
+                activity.startActivity(intent);
+            }
+        }, IntentMaster.needIgnoreExceptions());
     }
 
-    public static void googleMap(@NonNull Activity activity, @NonNull String text) {
-        Intent intent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("geo:0,0?q=" + text));
-        intent.setPackage("com.google.android.apps.maps");
-        activity.startActivity(intent);
+    public static void googleMap(@NonNull final Activity activity, @NonNull final String text) {
+        Utils.tryThis(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("geo:0,0?q=" + text));
+                intent.setPackage("com.google.android.apps.maps");
+                activity.startActivity(intent);
+            }
+        }, IntentMaster.needIgnoreExceptions());
     }
 
-    public static void navigationMap(@NonNull Activity activity, @NonNull String address) {
-        Intent intent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("google.navigation:q=" + address));
-        activity.startActivity(intent);
+    public static void navigationMap(@NonNull final Activity activity, @NonNull final String address) {
+        Utils.tryThis(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("google.navigation:q=" + address));
+                activity.startActivity(intent);
+            }
+        }, IntentMaster.needIgnoreExceptions());
     }
 
-    public static void map(@NonNull Activity activity, @NonNull String lat, @NonNull String lng, @NonNull String title) {
-        Intent intent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("geo:0,0?q=" + lat + "," + lng + " (" + title + ")"));
-        activity.startActivity(intent);
+    public static void map(@NonNull final Activity activity, @NonNull final String lat, @NonNull final String lng,
+                           @NonNull final String title) {
+        Utils.tryThis(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("geo:0,0?q=" + lat + "," + lng + " (" + title + ")"));
+                activity.startActivity(intent);
+            }
+        }, IntentMaster.needIgnoreExceptions());
     }
 
-    public static void map(@NonNull Activity activity, double lat, double lng) {
-        Intent intent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("geo:0,0?q=" + lat + "," + lng));
-        activity.startActivity(intent);
+    public static void map(@NonNull final Activity activity, final double lat, final double lng) {
+        Utils.tryThis(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("geo:0,0?q=" + lat + "," + lng));
+                activity.startActivity(intent);
+            }
+        }, IntentMaster.needIgnoreExceptions());
     }
 
-    public static void map(@NonNull Activity activity, @NonNull String lat, @NonNull String lng) {
-        Intent intent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("geo:0,0?q=" + lat + "," + lng));
-        activity.startActivity(intent);
+    public static void map(@NonNull final Activity activity, @NonNull final String lat, @NonNull final String lng) {
+        Utils.tryThis(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("geo:0,0?q=" + lat + "," + lng));
+                activity.startActivity(intent);
+            }
+        }, IntentMaster.needIgnoreExceptions());
     }
 }
