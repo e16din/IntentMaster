@@ -11,15 +11,37 @@ import android.support.v4.app.Fragment;
 import com.e16din.intentmaster.model.Data;
 
 import java.io.Serializable;
-import java.util.Set;
 
 public final class Extra {
+
 
     private Extra() {
         super();
     }
 
     public static final String KEY_DATA = "data";
+
+
+    private static Bundle sCurrentBundle;
+    private static int sPosition;
+
+    public static void resetPosition() {
+        sPosition = 0;
+    }
+
+    public static void setPosition(int position) {
+        sPosition = position;
+    }
+
+    public static void setCurrentBundle(Bundle currentBundle) {
+        sCurrentBundle = currentBundle;
+    }
+
+    public static void freeCurrentBundle() {
+        sCurrentBundle = null;
+    }
+
+    // get bundle
 
 
     @Nullable
@@ -42,12 +64,7 @@ public final class Extra {
         return activity.getIntent() == null ? null : activity.getIntent().getExtras();
     }
 
-    //get next
-
-    @Nullable
-    private static String getNextKey(Set<String> set) {
-        return set.iterator().hasNext() ? set.iterator().next() : null;
-    }
+    // get next
 
     /**
      * Get next data from arguments
@@ -58,6 +75,7 @@ public final class Extra {
     public static Object getNext(Fragment fragment) {
         return getNext(getBundle(fragment));
     }
+
 
     /**
      * Get next data from arguments
@@ -96,8 +114,25 @@ public final class Extra {
      */
     @Nullable
     public static Object getNext(Bundle bundle) {
-        final String nextKey = getNextKey(bundle.keySet());
-        return nextKey == null ? null : bundle.get(nextKey);
+        if (sCurrentBundle == null) return null;
+
+        if (!sCurrentBundle.equals(bundle)) {
+            resetPosition();
+        }
+
+        setCurrentBundle(bundle);
+
+        return bundle.get(getKey(sPosition));
+    }
+
+    /**
+     * Get next data from last bundle
+     *
+     * @return next data object or null if no more objects
+     */
+    @Nullable
+    public static Object getNext() {
+        return getNext(sCurrentBundle);
     }
 
     // get from fragment
