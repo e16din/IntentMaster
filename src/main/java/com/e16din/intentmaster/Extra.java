@@ -45,7 +45,7 @@ public final class Extra {
     //get next
 
     @Nullable
-    private static String getNext(Set<String> set) {
+    private static String getNextKey(Set<String> set) {
         return set.iterator().hasNext() ? set.iterator().next() : null;
     }
 
@@ -96,7 +96,8 @@ public final class Extra {
      */
     @Nullable
     public static Object getNext(Bundle bundle) {
-        return getNext(bundle.keySet());
+        final String nextKey = getNextKey(bundle.keySet());
+        return nextKey == null ? null : bundle.get(nextKey);
     }
 
     // get from fragment
