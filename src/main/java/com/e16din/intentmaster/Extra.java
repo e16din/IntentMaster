@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import com.e16din.intentmaster.model.Data;
 
 import java.io.Serializable;
+import java.util.Set;
 
 public final class Extra {
 
@@ -20,18 +21,32 @@ public final class Extra {
 
     public static final String KEY_DATA = "data";
 
-    public static int sPosition = 0;
+
+    @Nullable
+    public static Bundle getBundle(@NonNull Fragment fragment) {
+        return fragment.getArguments();
+    }
+
+    @Nullable
+    public static Bundle getBundle(@NonNull android.app.Fragment fragment) {
+        return fragment.getArguments();
+    }
+
+    @Nullable
+    public static Bundle getBundle(@NonNull Intent intent) {
+        return intent.getExtras();
+    }
+
+    @Nullable
+    public static Bundle getBundle(@NonNull Activity activity) {
+        return activity.getIntent() == null ? null : activity.getIntent().getExtras();
+    }
 
     //get next
 
-    /**
-     * Get next data from arguments
-     *
-     * @return next data object or null if no more objects
-     */
     @Nullable
-    public static Object getNext(@NonNull Fragment fragment) {
-        return sPosition + 1 >= getCount(fragment) ? null : get(fragment, sPosition);
+    private static String getNext(Set<String> set) {
+        return set.iterator().hasNext() ? set.iterator().next() : null;
     }
 
     /**
@@ -40,8 +55,18 @@ public final class Extra {
      * @return next data object or null if no more objects
      */
     @Nullable
-    public static Object getNext(@NonNull android.app.Fragment fragment) {
-        return sPosition + 1 >= getCount(fragment) ? null : get(fragment, sPosition);
+    public static Object getNext(Fragment fragment) {
+        return getNext(getBundle(fragment));
+    }
+
+    /**
+     * Get next data from arguments
+     *
+     * @return next data object or null if no more objects
+     */
+    @Nullable
+    public static Object getNext(android.app.Fragment fragment) {
+        return getNext(getBundle(fragment));
     }
 
     /**
@@ -50,8 +75,8 @@ public final class Extra {
      * @return next data object or null if no more objects
      */
     @Nullable
-    public static Object getNext(@NonNull Intent intent) {
-        return sPosition + 1 >= getCount(intent) ? null : get(intent, sPosition);
+    public static Object getNext(Intent intent) {
+        return getNext(getBundle(intent));
     }
 
     /**
@@ -60,21 +85,25 @@ public final class Extra {
      * @return next data object or null if no more objects
      */
     @Nullable
-    public static Object getNext(@NonNull Activity activity) {
-        return sPosition + 1 >= getCount(activity) ? null : get(activity, sPosition);
+    public static Object getNext(Activity activity) {
+        return getNext(getBundle(activity));
     }
 
     /**
-     * Reset next position to 0
+     * Get next data from bundle
+     *
+     * @return next data object or null if no more objects
      */
-    public static void resetPosition() {
-        sPosition = 0;
+    @Nullable
+    public static Object getNext(Bundle bundle) {
+        return getNext(bundle.keySet());
     }
 
     // get from fragment
 
     public static Object get(@NonNull Fragment fragment, @NonNull String key) {
-        return fragment.getArguments() == null ? null : fragment.getArguments().getSerializable(key);
+        final Bundle bundle = getBundle(fragment);
+        return bundle == null ? null : bundle.getSerializable(key);
     }
 
     public static Object get(@NonNull Fragment fragment) {
@@ -82,11 +111,12 @@ public final class Extra {
     }
 
     public static Object get(@NonNull Fragment fragment, int position) {
-        return get(fragment, KEY_DATA + "_" + position);
+        return get(fragment, getKey(position));
     }
 
     public static Object get(@NonNull android.app.Fragment fragment, @NonNull String key) {
-        return fragment.getArguments() == null ? null : fragment.getArguments().getSerializable(key);
+        final Bundle bundle = getBundle(fragment);
+        return bundle == null ? null : bundle.getSerializable(key);
     }
 
     public static Object get(@NonNull android.app.Fragment fragment) {
@@ -94,13 +124,14 @@ public final class Extra {
     }
 
     public static Object get(@NonNull android.app.Fragment fragment, int position) {
-        return get(fragment, KEY_DATA + "_" + position);
+        return get(fragment, getKey(position));
     }
 
     // get from intent
 
     public static Object get(@NonNull Intent intent, @NonNull String key) {
-        return intent.getExtras() == null ? null : intent.getExtras().getSerializable(key);
+        final Bundle bundle = getBundle(intent);
+        return bundle == null ? null : bundle.getSerializable(key);
     }
 
     public static Object get(@NonNull Intent intent) {
@@ -108,7 +139,7 @@ public final class Extra {
     }
 
     public static Object get(@NonNull Intent intent, int position) {
-        return get(intent, KEY_DATA + "_" + position);
+        return get(intent, getKey(position));
     }
 
     // get from activity
@@ -122,25 +153,34 @@ public final class Extra {
     }
 
     public static Object get(@NonNull Activity activity, int position) {
-        return get(activity.getIntent(), KEY_DATA + "_" + position);
+        return get(activity.getIntent(), getKey(position));
+    }
+
+    @NonNull
+    private static String getKey(int position) {
+        return KEY_DATA + "_" + position;
     }
 
     // contains key
 
     public static boolean containsKey(@NonNull Intent intent, @NonNull String key) {
-        return intent.getExtras() != null && intent.getExtras().containsKey(key);
+        final Bundle bundle = getBundle(intent);
+        return bundle != null && bundle.containsKey(key);
     }
 
     public static boolean containsKey(@NonNull android.app.Fragment fragment, @NonNull String key) {
-        return fragment.getArguments().containsKey(key);
+        final Bundle bundle = getBundle(fragment);
+        return bundle != null && bundle.containsKey(key);
     }
 
-    public static boolean containsArg(@NonNull Fragment fragment, @NonNull String key) {
-        return fragment.getArguments().containsKey(key);
+    public static boolean containsKey(@NonNull Fragment fragment, @NonNull String key) {
+        final Bundle bundle = getBundle(fragment);
+        return bundle != null && bundle.containsKey(key);
     }
 
-    public static boolean containsArg(@NonNull Activity activity, @NonNull String key) {
-        return containsKey(activity.getIntent(), key);
+    public static boolean containsKey(@NonNull Activity activity, @NonNull String key) {
+        final Bundle bundle = getBundle(activity);
+        return bundle != null && bundle.containsKey(key);
     }
 
     // get count
@@ -149,7 +189,8 @@ public final class Extra {
      * Get count of extras
      */
     public static int getCount(@NonNull Intent intent) {
-        return intent.getExtras() == null ? 0 : intent.getExtras().size();
+        final Bundle bundle = getBundle(intent);
+        return bundle == null ? 0 : bundle.size();
     }
 
     /**
@@ -163,14 +204,16 @@ public final class Extra {
      * Get count of arguments
      */
     public static int getCount(@NonNull android.app.Fragment fragment) {
-        return fragment.getArguments() == null ? 0 : fragment.getArguments().size();
+        final Bundle bundle = getBundle(fragment);
+        return bundle == null ? 0 : bundle.size();
     }
 
     /**
      * Get count of arguments
      */
     public static int getCount(@NonNull Fragment fragment) {
-        return fragment.getArguments() == null ? 0 : fragment.getArguments().size();
+        final Bundle bundle = getBundle(fragment);
+        return bundle == null ? 0 : bundle.size();
     }
 
     // has
@@ -194,43 +237,43 @@ public final class Extra {
     // put
 
     public static Intent put(@NonNull Intent intent, Data[] data) {
-        for (Data aData : data) {
-            intent.putExtra(aData.getKey(), aData.getValue());
+        for (Data d : data) {
+            intent.putExtra(d.getKey(), d.getValue());
         }
         return intent;
     }
 
     public static Intent put(@NonNull Intent intent, Serializable[] data) {
         for (int i = 0; i < data.length; i++) {
-            intent.putExtra(KEY_DATA + "_" + i, data[i]);
+            intent.putExtra(getKey(i), data[i]);
         }
         return intent;
     }
 
     public static Intent put(@NonNull Intent intent, Parcelable[] data) {
         for (int i = 0; i < data.length; i++) {
-            intent.putExtra(KEY_DATA + "_" + i, data[i]);
+            intent.putExtra(getKey(i), data[i]);
         }
         return intent;
     }
 
     public static Bundle put(Bundle bundle, Data[] data) {
         for (int i = 0; i < data.length; i++) {
-            bundle.putSerializable(KEY_DATA + "_" + i, data[i]);
+            bundle.putSerializable(getKey(i), data[i]);
         }
         return bundle;
     }
 
     public static Bundle put(Bundle bundle, Parcelable[] data) {
         for (int i = 0; i < data.length; i++) {
-            bundle.putParcelable(KEY_DATA + "_" + i, data[i]);
+            bundle.putParcelable(getKey(i), data[i]);
         }
         return bundle;
     }
 
     public static Bundle put(Bundle bundle, Serializable[] data) {
         for (int i = 0; i < data.length; i++) {
-            bundle.putSerializable(KEY_DATA + "_" + i, data[i]);
+            bundle.putSerializable(getKey(i), data[i]);
         }
         return bundle;
     }
