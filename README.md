@@ -13,7 +13,7 @@ User user = new User("Bruce Wein");
 //Start activity
 Start.activity(this, ProfileActivity.class, user);
 
-//Create fragment
+//or create fragment
 Create.fragment(new ProfileFragment(), user)
 
 //Get data
