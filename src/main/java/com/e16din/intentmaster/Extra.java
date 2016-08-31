@@ -114,7 +114,9 @@ public final class Extra {
      */
     @Nullable
     public static Object getNext(Bundle bundle) {
-        if (sCurrentBundle == null) return null;
+        if (sCurrentBundle == null) {
+            sCurrentBundle = bundle;
+        }
 
         if (!sCurrentBundle.equals(bundle)) {
             resetPosition();
