@@ -4,35 +4,30 @@ Simple way to start activity with your data
 [![Release](https://jitpack.io/v/e16din/IntentMaster.svg)](https://jitpack.io/#e16din/IntentMaster)
 
 ## Dependencies:
-[appcompat-v7:24.0.0](http://developer.android.com/intl/ru/tools/support-library/features.html#v7-appcompat)
+[appcompat-v7:24.2.0](http://developer.android.com/intl/ru/tools/support-library/features.html#v7-appcompat)
 
 ## Using
 
 ```java
-//start with data
-IntentMaster.start(AuthActivity.this, MainActivity.class,
-                                yourData);   
-//or new way
-Start.activity(AuthActivity.this, MainActivity.class,
-                                yourData);  
+//Create data
+User user = new User("Bruce Wein");
 
-//check extra
-IntentMaster.hasExtra(this);
-//or new way
-Extra.has(this);
+//Start activity
+Start.activity(this, ProfileActivity.class, user);
 
-//get data
-User user = (User) IntentMaster.getExtra(this);
-//or new way
+//Create fragment
+Create.fragment(new ProfileFragment(), user)
+
+//Get data
 User user = (User) Extra.get(this);
 
-//open map
+
+//Open intent
 Open.map(...); 
-//open google map
 Open.googleMap(...); 
 //.. and others like phone, sms, etc
 
-//share link
+//Share link
 Share.link(context, link);
 
 ```
