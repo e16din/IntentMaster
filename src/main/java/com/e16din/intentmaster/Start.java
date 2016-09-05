@@ -857,4 +857,18 @@ public final class Start {
         }, IntentMaster.needIgnoreExceptions());
     }
 
+    /// action view
+
+    public static void actionView(@NonNull final Context context, @NonNull final Uri uri) {
+        Utils.tryThis(new Runnable() {
+            @Override
+            public void run() {
+                context.startActivity(new Intent(Intent.ACTION_VIEW, uri));
+            }
+        }, IntentMaster.needIgnoreExceptions());
+    }
+
+    public static void actionView(@NonNull final Context context, @NonNull final String uri) {
+        actionView(context, Uri.parse(uri));
+    }
 }

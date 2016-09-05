@@ -2,6 +2,7 @@ package com.e16din.intentmaster;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -111,5 +112,15 @@ public class Open {
                 activity.startActivity(intent);
             }
         }, IntentMaster.needIgnoreExceptions());
+    }
+
+    /// action view
+
+    public static void actionView(@NonNull final Context context, @NonNull final Uri uri) {
+        Start.actionView(context, uri);
+    }
+
+    public static void actionView(@NonNull final Context context, @NonNull final String uri) {
+        Start.actionView(context, uri);
     }
 }
