@@ -124,7 +124,9 @@ public final class Extra {
 
         setCurrentBundle(bundle);
 
-        return bundle.get(getKey(sPosition));
+        final Object result = bundle.get(getKey(sPosition));
+        sPosition += 1;
+        return result;
     }
 
     /**
