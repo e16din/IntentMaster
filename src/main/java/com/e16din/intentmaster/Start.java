@@ -871,4 +871,18 @@ public final class Start {
     public static void actionView(@NonNull final Context context, @NonNull final String uri) {
         actionView(context, Uri.parse(uri));
     }
+
+    public static void actionViewNewTask(@NonNull final Context context, @NonNull final Uri uri) {
+        Utils.tryThis(new Runnable() {
+            @Override
+            public void run() {
+                context.startActivity(new Intent(Intent.ACTION_VIEW, uri)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            }
+        }, IntentMaster.needIgnoreExceptions());
+    }
+
+    public static void actionViewNewTask(@NonNull final Context context, @NonNull final String uri) {
+        actionViewNewTask(context, Uri.parse(uri));
+    }
 }

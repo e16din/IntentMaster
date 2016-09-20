@@ -123,4 +123,12 @@ public class Open {
     public static void actionView(@NonNull final Context context, @NonNull final String uri) {
         Start.actionView(context, uri);
     }
+
+    public static void actionViewNewTask(@NonNull final Context context, @NonNull final Uri uri) {
+        Start.actionViewNewTask(context, uri);
+    }
+
+    public static void actionViewNewTask(@NonNull final Context context, @NonNull final String uri) {
+        Start.actionViewNewTask(context, uri);
+    }
 }
