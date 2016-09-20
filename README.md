@@ -43,7 +43,7 @@ Step 1. Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 ```groovy
     dependencies {
-        compile 'com.github.e16din:IntentMaster:0.3.1'
+        compile 'com.github.e16din:IntentMaster:0.3.2'
     }
 ```
 

@@ -11,6 +11,7 @@ import android.support.annotation.StringRes;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.util.AndroidRuntimeException;
 
 import com.e16din.intentmaster.model.Data;
 
@@ -863,7 +864,11 @@ public final class Start {
         Utils.tryThis(new Runnable() {
             @Override
             public void run() {
-                context.startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                try {
+                    context.startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                } catch (AndroidRuntimeException e) {
+                    actionViewNewTask(context, uri);
+                }
             }
         }, IntentMaster.needIgnoreExceptions());
     }
