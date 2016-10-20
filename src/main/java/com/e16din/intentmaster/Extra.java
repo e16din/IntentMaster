@@ -55,8 +55,8 @@ public final class Extra {
     }
 
     @Nullable
-    public static Bundle getBundle(@NonNull Intent intent) {
-        return intent.getExtras();
+    public static Bundle getBundle(@Nullable Intent intent) {
+        return intent == null ? null : intent.getExtras();
     }
 
     @Nullable
@@ -228,7 +228,7 @@ public final class Extra {
     /**
      * Get count of extras
      */
-    public static int getCount(@NonNull Intent intent) {
+    public static int getCount(@Nullable Intent intent) {
         final Bundle bundle = getBundle(intent);
         return bundle == null ? 0 : bundle.size();
     }
@@ -258,7 +258,7 @@ public final class Extra {
 
     // has
 
-    public static boolean has(@NonNull Intent intent) {
+    public static boolean has(@Nullable Intent intent) {
         return getCount(intent) > 0;
     }
 
